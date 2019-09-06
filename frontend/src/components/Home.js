@@ -8,7 +8,7 @@ const Home = () => {
     }
 
     return(
-        <button onClick={handleButton}>tests</button>
+        <button onClick={handleButton}>test</button>
     )
 }
 
