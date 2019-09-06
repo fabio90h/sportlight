@@ -3,13 +3,13 @@ services:
   - docker
 
 before_install:
-  - docker build -t fabio90h/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t fabio90h/react-test -f ./frontend/Dockerfile.dev ./frontend
 
 script:
   - docker run fabio90h/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t fabio90h/sportlight-client ./client
+  - docker build -t fabio90h/sportlight-client ./frontend
   - docker build -t fabio90h/sportlight-server ./server
   - docker build -t fabio90h/sportlight-nginx ./nginx
   - echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
