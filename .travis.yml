@@ -12,7 +12,7 @@ after_success:
   - docker build -t fabio90h/sportlight-client ./frontend
   - docker build -t fabio90h/sportlight-server ./server
   - docker build -t fabio90h/sportlight-nginx ./nginx
-  - echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push fabio90h/sportlight-client
   - docker push fabio90h/sportlight-server
   - docker push fabio90h/sportlight-nginx
