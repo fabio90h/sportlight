@@ -3,16 +3,16 @@ services:
   - docker
 
 before_install:
-  - docker build -t fabio90h/react-test -f ./frontend/Dockerfile.dev ./frontend
+  - docker build -t "$DOCKER_ID"/react-test -f ./frontend/Dockerfile.dev ./frontend
 
 script:
-  - docker run fabio90h/react-test npm test -- --coverage
+  - docker run "$DOCKER_ID"/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t fabio90h/sportlight-client ./frontend
-  - docker build -t fabio90h/sportlight-server ./server
-  - docker build -t fabio90h/sportlight-nginx ./nginx
+  - docker build -t "$DOCKER_ID"/sportlight-client ./frontend
+  - docker build -t "$DOCKER_ID"/sportlight-server ./server
+  - docker build -t "$DOCKER_ID"/sportlight-nginx ./nginx
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push fabio90h/sportlight-client
-  - docker push fabio90h/sportlight-server
-  - docker push fabio90h/sportlight-nginx
+  - docker push "$DOCKER_ID"/sportlight-client
+  - docker push "$DOCKER_ID"/sportlight-server
+  - docker push "$DOCKER_ID"/sportlight-nginx
