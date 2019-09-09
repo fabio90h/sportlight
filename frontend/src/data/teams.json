@@ -1,6 +1,6 @@
 {
     "teams": [
-        {"value": 77,  "label": "Athletic Club", "shortName": "Athletic", "tla": "ATH", "crestUrl": "https://upload.wikimedia.org/wikipedia/en/9/98/Club_Athletic_Bilbao_logo.svg"},
+        {"value": 77,  "label": "Athletico Bilbao", "shortName": "Athletic", "tla": "ATH", "crestUrl": "https://upload.wikimedia.org/wikipedia/en/9/98/Club_Athletic_Bilbao_logo.svg"},
         {"value": 78,  "label": "Club Atlético de Madrid", "shortName": "Atleti", "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/c1/Atletico_Madrid_logo.svg"},
         {"value": 79,  "label": "CA Osasuna", "shortName": "Osasuna", "tla": "OSA", "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/ca/Atletico_Osasuna.svg"},
         {"value": 80,  "label": "RCD Espanyol de Barcelona", "shortName": "Espanyol"},
