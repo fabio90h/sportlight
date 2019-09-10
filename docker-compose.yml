@@ -3,6 +3,9 @@ services:
   # NGINX PROXY SERVER
   nginx:
     restart: always
+    links:
+      - client:client
+      - api:api
     build: 
       context: ./nginx
       dockerfile: Dockerfile.dev
