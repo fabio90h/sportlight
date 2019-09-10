@@ -6,8 +6,11 @@ import Fixtures from './Fixtures'
 
 import '../App.css'
 
-
+/**
+ * Home page that holds all the components
+ */
 const Home = () => {
+    // All the fixtures of a particular team. Results from SelectTeam Component
     const [teamFixtures, setTeamFixtures] = useState("")
 
     // BUTTONS FOR DEV

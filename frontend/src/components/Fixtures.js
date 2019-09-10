@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import FixtureCard from './FixtureCard'
 import Highlights from './Highlights'
 
+/**
+ * Displays the six fixtures of a particular team
+ * @param {array} teamFixtures Games from the Football-data API for a particular team
+ * @return Will show the team's fixtures as well as the highlight component
+ */
 const Fixtures = ({teamFixtures}) => {
     const [highlightArray, setHighlightArray] = useState([])
 
