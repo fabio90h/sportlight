@@ -1,6 +1,7 @@
 const search = require('youtube-search')
 const axios = require('axios')
-const { youtube_api, football_data_api, api_football } = require('./keys')
+
+const { youtube_api, football_data_api, api_football, youtube_alt } = require('./keys')
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -9,20 +10,24 @@ const app = express()
 app.use(bodyParser.json())
 
 app.get('/', (req, response) => {
-    response.send("testing")
+    response.send("tests")
 })
 
 // YOUTUBE API
 var opts = {
-    maxResults: 10,
-    key: youtube_api
+    maxResults: 25,
+    key: youtube_alt,
+    videoDuration: "medium",
+    type: "video",
+    videoEmbeddable: "true",
 }
 
-app.get('/search', (req, response) => {
-    search('portugal serbia', opts, function(err, results) {
+app.post('/search', async (req, response) => {
+    const { homeTeam, awayTeam, date } = req.body
+    search(`${homeTeam} ${awayTeam} highlights`, {...opts, publishedAfter: date}, (err, results) => {
         if(err) return console.log(err);
-      
-        response.send(results);
+        let filterResults = results.filter(current => current.channelTitle !== "LaLiga Santander")
+        response.send(filterResults);
       });
 })
 

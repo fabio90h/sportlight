@@ -1,15 +1,17 @@
 import React from 'react'
 import axios from 'axios'
 
-const FixtureCard = ({fixtureData}) => {
-    const {homeTeam, awayTeam, competition, utcTime} = fixtureData
+const FixtureCard = ({fixtureData, setHighlightArray}) => {
+    const {homeTeam, awayTeam, competition, utcDate} = fixtureData
 
     const handleButtonSearch = async () => {
-        let res = await axios.post('/api/search', {
+        setHighlightArray([])
+        let highlightArray = await axios.post('/api/search', {
             homeTeam: homeTeam.name,
-            awayTeam: awayTeam.name
+            awayTeam: awayTeam.name,
+            date: utcDate
         })
-        console.log(res.data)
+        setHighlightArray(highlightArray.data)
     }
 
     return (

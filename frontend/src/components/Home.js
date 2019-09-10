@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import SelectTeam from './SelectTeam'
 import axios from 'axios'
+
+import SelectTeam from './SelectTeam'
 import Fixtures from './Fixtures'
+
+import '../App.css'
 
 
 const Home = () => {
@@ -9,7 +12,7 @@ const Home = () => {
 
     // BUTTONS FOR DEV
     const handleButtonTest = async () => {
-        let res = await axios.get('/api/fixture')
+        let res = await axios.get('/api/')
         console.log(res.data)
     }
     const handleButtonSearch = async () => {
@@ -20,11 +23,10 @@ const Home = () => {
         // console.log(printFixtures())
     }
 
-
     return(
         <div>
             <div>
-                <SelectTeam setTeamFixturesParent={setTeamFixtures}/>
+                <SelectTeam setTeamFixtures={setTeamFixtures}/>
             </div>
             <Fixtures teamFixtures={teamFixtures}/>
             <button onClick={handleButtonTest}>tests</button>
